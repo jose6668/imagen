@@ -1,17 +1,13 @@
 pipeline {
     agent any
+
     stages {
-        stage('Test Git Connection') {
-            steps {
-                script {
-                    // Intentar clonar el repositorio
-                    sh 'git clone https://github.com/jose6668/imagen.git'
-                }
-            }
-        }
         stage('Build') {
             steps {
-                echo 'Construcción exitosa de la imagen'
+                script {
+                    // Construir la imagen Docker con la etiqueta 'demo-nginx:1'
+                    docker.build('demo-nginx:1')
+                }
             }
         }
     }
