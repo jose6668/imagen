@@ -1,11 +1,10 @@
 pipeline {
-    agent any
+    agent any // Ejecutar en cualquier nodo disponible
     stages {
         stage('Test Docker') {
             steps {
                 script {
-                    // Ejecutar el comando docker --version para verificar
-                    bat 'docker --version'
+                    sh 'docker --version'  // Ejecutar en nodo Linux
                 }
             }
         }
