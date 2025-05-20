@@ -1,18 +1,16 @@
 pipeline {
-    agent any // Ejecutar en cualquier nodo disponible
+    agent any
     stages {
-        stage('Test Docker') {
+        stage('Test Git Connection') {
             steps {
                 script {
-                    sh 'docker --version'  // Ejecutar en nodo Linux
+                    sh 'git clone https://github.com/jose6668/imagen.git'
                 }
             }
         }
         stage('Build') {
             steps {
-                script {
-                    docker.build('demo-nginx:1')
-                }
+                echo 'Construcción exitosa de la imagen'
             }
         }
     }
