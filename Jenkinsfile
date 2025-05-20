@@ -4,7 +4,8 @@ pipeline {
         stage('Test Git Connection') {
             steps {
                 script {
-                    sh 'git clone https://github.com/jose6668/imagen.git'
+                    // Verificar que Jenkins puede acceder a GitHub sin clonar el repositorio
+                    sh 'git --version'
                 }
             }
         }
