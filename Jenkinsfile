@@ -1,11 +1,17 @@
 pipeline {
     agent any
-
     stages {
+        stage('Test Docker') {
+            steps {
+                script {
+                    // Ejecutar el comando docker --version para verificar
+                    bat 'docker --version'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 script {
-                    // Construir la imagen Docker con la etiqueta 'demo-nginx:1'
                     docker.build('demo-nginx:1')
                 }
             }
